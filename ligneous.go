@@ -9,7 +9,7 @@ import (
 
 var (
 	Verbose bool = false
-	Log     seelog.LogInterface
+	Logger  seelog.LoggerInterface
 	Level   string = "debug"
 )
 
@@ -24,7 +24,7 @@ const (
 
 // https://github.com/cihub/seelog/wiki/Custom-formatters
 func pidLogFormatter(params string) seelog.FormatterFunc {
-	return func(message string, level seelog.Level, context seelog.LogContextInterface) interface{} {
+	return func(message string, level seelog.LogLevel, context seelog.LogContextInterface) interface{} {
 		var pid = os.Getpid()
 		return fmt.Sprintf("%v", pid)
 	}
@@ -35,7 +35,7 @@ func initLogging() {
 		Level = "trace"
 	}
 
-	Log = seelog.Disabled
+	Logger = seelog.Disabled
 
 	// https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit
 	// https://github.com/cihub/seelog/wiki/Log-levels
@@ -67,12 +67,12 @@ func initLogging() {
 </seelog>
 `
 
-	Log, err := seelog.LogFromConfigAsBytes([]byte(appConfig))
+	logger, err := seelog.LoggerFromConfigAsBytes([]byte(appConfig))
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	Log = Log
+	Logger = logger
 }
 
 func init() {
