@@ -23,38 +23,27 @@ const (
 	grey    = 37 // debug
 )
 
-// func formatter(message ...interface{}) []string {
-//
-// 	text := strings.Join(message, " ")
-// }
-
 func Trace(message ...interface{}) {
-	// text := formatter(message)
 	Logger.Trace(message)
 }
 
 func Debug(message ...interface{}) {
-	// text := strings.Join(message, " ")
 	Logger.Debug(message)
 }
 
 func Info(message ...interface{}) {
-	// text := strings.Join(message, " ")
 	Logger.Info(message)
 }
 
 func Warn(message ...interface{}) {
-	// text := strings.Join(message, " ")
 	Logger.Warn(message)
 }
 
 func Error(message ...interface{}) {
-	// text := strings.Join(message, " ")
 	Logger.Error(message)
 }
 
 func Critical(message ...interface{}) {
-	// text := strings.Join(message, " ")
 	Logger.Critical(message)
 }
 
