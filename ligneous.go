@@ -43,7 +43,7 @@ func Warn(message ...string) {
 	Logger.Warn(text)
 }
 
-func Error(message ...sting) {
+func Error(message ...string) {
 	text := strings.Join(message, " ")
 	Logger.Error(text)
 }
