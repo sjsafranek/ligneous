@@ -3,6 +3,7 @@ package ligneous
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	seelog "github.com/cihub/seelog"
 )
@@ -22,28 +23,37 @@ const (
 	grey    = 37 // debug
 )
 
+func formatter(message ...interface{}) string {
+	var text []string
+	for i := range message {
+		text = append(text, fmt.Sprintf("%v", message[i]))
+	}
+
+	return strings.Join(text, " ")
+}
+
 func Trace(message ...interface{}) {
-	Logger.Trace(message)
+	Logger.Trace(formatter(message))
 }
 
 func Debug(message ...interface{}) {
-	Logger.Debug(message)
+	Logger.Debug(formatter(message))
 }
 
 func Info(message ...interface{}) {
-	Logger.Info(message)
+	Logger.Info(formatter(message))
 }
 
 func Warn(message ...interface{}) {
-	Logger.Warn(message)
+	Logger.Warn(formatter(message))
 }
 
 func Error(message ...interface{}) {
-	Logger.Error(message)
+	Logger.Error(formatter(message))
 }
 
 func Critical(message ...interface{}) {
-	Logger.Critical(message)
+	Logger.Critical(formatter(message))
 }
 
 // https://github.com/cihub/seelog/wiki/Custom-formatters
