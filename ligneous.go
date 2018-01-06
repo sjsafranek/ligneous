@@ -23,10 +23,10 @@ const (
 	grey    = 37 // debug
 )
 
-func formatter(message ...interface{}) []string {
-
-	text := strings.Join(message, " ")
-}
+// func formatter(message ...interface{}) []string {
+//
+// 	text := strings.Join(message, " ")
+// }
 
 func Trace(message ...interface{}) {
 	// text := formatter(message)
