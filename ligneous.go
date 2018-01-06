@@ -23,33 +23,38 @@ const (
 	grey    = 37 // debug
 )
 
-func Trace(message ...string) {
+func formatter(message ...interface{}) []string {
+
 	text := strings.Join(message, " ")
-	Logger.Trace(text)
 }
 
-func Debug(message ...string) {
-	text := strings.Join(message, " ")
+func Trace(message ...interface{}) {
+	// text := formatter(message)
+	Logger.Trace(message)
+}
+
+func Debug(message ...interface{}) {
+	// text := strings.Join(message, " ")
 	Logger.Debug(text)
 }
 
-func Info(message ...string) {
-	text := strings.Join(message, " ")
+func Info(message ...interface{}) {
+	// text := strings.Join(message, " ")
 	Logger.Info(text)
 }
 
-func Warn(message ...string) {
-	text := strings.Join(message, " ")
+func Warn(message ...interface{}) {
+	// text := strings.Join(message, " ")
 	Logger.Warn(text)
 }
 
-func Error(message ...string) {
-	text := strings.Join(message, " ")
+func Error(message ...interface{}) {
+	// text := strings.Join(message, " ")
 	Logger.Error(text)
 }
 
-func Critical(message ...string) {
-	text := strings.Join(message, " ")
+func Critical(message ...interface{}) {
+	// text := strings.Join(message, " ")
 	Logger.Critical(text)
 }
 
