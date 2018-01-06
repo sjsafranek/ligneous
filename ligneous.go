@@ -3,7 +3,7 @@ package ligneous
 import (
 	"fmt"
 	"os"
-	"strings"
+	// "strings"
 
 	seelog "github.com/cihub/seelog"
 )
