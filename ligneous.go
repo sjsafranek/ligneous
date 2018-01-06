@@ -2,8 +2,8 @@ package ligneous
 
 import (
 	"fmt"
-	"strings"
 	"os"
+	"strings"
 
 	seelog "github.com/cihub/seelog"
 )
@@ -23,37 +23,35 @@ const (
 	grey    = 37 // debug
 )
 
-func Trace (message ...string) {
+func Trace(message ...string) {
 	text := strings.Join(message, " ")
-	Logger.Trace(text}
+	Logger.Trace(text)
 }
 
-func Debug (message ...string) {
+func Debug(message ...string) {
 	text := strings.Join(message, " ")
-	Logger.Debug(text}
+	Logger.Debug(text)
 }
 
-func Info (message ...string) {
+func Info(message ...string) {
 	text := strings.Join(message, " ")
-	Logger.Info(text}
+	Logger.Info(text)
 }
 
-func Warn (message ...string) {
+func Warn(message ...string) {
 	text := strings.Join(message, " ")
-	Logger.Warn(text}
+	Logger.Warn(text)
 }
 
-func Error (message ...string) {
+func Error(message ...sting) {
 	text := strings.Join(message, " ")
-	Logger.Error(text}
+	Logger.Error(text)
 }
 
-func Critical (message ...string) {
+func Critical(message ...string) {
 	text := strings.Join(message, " ")
-	Logger.Critical(text}
+	Logger.Critical(text)
 }
-
-
 
 // https://github.com/cihub/seelog/wiki/Custom-formatters
 func pidLogFormatter(params string) seelog.FormatterFunc {
