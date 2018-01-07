@@ -10,7 +10,7 @@ import (
 
 var (
 	Verbose bool = false
-	Logger  seelog.LoggerInterface
+	Log     seelog.LoggerInterface
 	Level   string = "debug"
 )
 
@@ -68,7 +68,7 @@ func initLogging() {
 		Level = "trace"
 	}
 
-	Logger = seelog.Disabled
+	Log = seelog.Disabled
 
 	// https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit
 	// https://github.com/cihub/seelog/wiki/Log-levels
@@ -105,7 +105,7 @@ func initLogging() {
 		fmt.Println(err)
 		return
 	}
-	Logger = logger
+	Log = logger
 }
 
 func init() {
