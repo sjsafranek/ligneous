@@ -23,7 +23,7 @@ const (
 	grey    = 37 // debug
 )
 
-func formatter(message ...interface{}) string {
+func formatter(message []interface{}) string {
 	var text []string
 	for i := range message {
 		text = append(text, fmt.Sprintf("%v", message[i]))
