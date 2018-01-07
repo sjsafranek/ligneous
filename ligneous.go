@@ -28,7 +28,6 @@ func formatter(message []interface{}) string {
 	for i := range message {
 		text = append(text, fmt.Sprintf("%v", message[i]))
 	}
-
 	return strings.Join(text, " ")
 }
 
