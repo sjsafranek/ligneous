@@ -32,27 +32,27 @@ func formatter(message []interface{}) string {
 }
 
 func Trace(message ...interface{}) {
-	Logger.Trace(formatter(message))
+	Log.Trace(formatter(message))
 }
 
 func Debug(message ...interface{}) {
-	Logger.Debug(formatter(message))
+	Log.Debug(formatter(message))
 }
 
 func Info(message ...interface{}) {
-	Logger.Info(formatter(message))
+	Log.Info(formatter(message))
 }
 
 func Warn(message ...interface{}) {
-	Logger.Warn(formatter(message))
+	Log.Warn(formatter(message))
 }
 
 func Error(message ...interface{}) {
-	Logger.Error(formatter(message))
+	Log.Error(formatter(message))
 }
 
 func Critical(message ...interface{}) {
-	Logger.Critical(formatter(message))
+	Log.Critical(formatter(message))
 }
 
 // https://github.com/cihub/seelog/wiki/Custom-formatters
