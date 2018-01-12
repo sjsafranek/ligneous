@@ -68,7 +68,7 @@ func pidLogFormatter(params string) seelog.FormatterFunc {
 	}
 }
 
-func initLogging() {
+func initLogging() error {
 	if Verbose {
 		Level = "trace"
 	}
@@ -107,10 +107,10 @@ func initLogging() {
 
 	logger, err := seelog.LoggerFromConfigAsBytes([]byte(appConfig))
 	if err != nil {
-		fmt.Println(err)
-		return
+		return err
 	}
 	Log = logger
+	return nil
 }
 
 func init() {
