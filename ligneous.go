@@ -23,9 +23,9 @@ const (
 	grey    = 37 // debug
 )
 
-func SetLoggingLevel(level string) {
+func SetLoggingLevel(level string) error {
 	Level = level
-	initLogging()
+	return initLogging()
 }
 
 func formatter(message []interface{}) string {
