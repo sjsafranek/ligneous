@@ -73,6 +73,19 @@ func initLogging() error {
 		Level = "trace"
 	}
 
+	// TODO:
+	//  - check
+	valid := false
+	levels := []strings{"debug", "trace", "info", "critical", "error", "warn"}
+	for i := range levels {
+		if levels[i] == Level {
+			valid = true
+		}
+	}
+	if !valid {
+		return fmt.Errorf("Level is not valid")
+	}
+
 	Log = seelog.Disabled
 
 	// https://en.wikipedia.org/wiki/ANSI_escape_code#3/4_bit
