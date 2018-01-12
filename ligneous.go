@@ -23,6 +23,11 @@ const (
 	grey    = 37 // debug
 )
 
+func SetLoggingLevel(level string) {
+	Level = level
+	initLogging()
+}
+
 func formatter(message []interface{}) string {
 	var text []string
 	for i := range message {
