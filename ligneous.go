@@ -76,7 +76,7 @@ func initLogging() error {
 	// TODO:
 	//  - check
 	valid := false
-	levels := [6]strings{"debug", "trace", "info", "critical", "error", "warn"}
+	levels := [6]string{"debug", "trace", "info", "critical", "error", "warn"}
 	for i := range levels {
 		if levels[i] == Level {
 			valid = true
