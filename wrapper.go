@@ -31,7 +31,7 @@ func (self *SeelogWrapper) isValidLevel(level string) bool {
 
 func (self *SeelogWrapper) SetLevel(level string) error {
 	if !self.isValidLevel(level) {
-		return fmt.Errorf("Mot a valid logging level")
+		return fmt.Errorf("Not a valid logging level")
 	}
 	self.Level = level
 	return self.init()
