@@ -12,7 +12,7 @@ const (
 func isValidLevel(level string) bool {
 	levels := [6]string{"debug", "trace", "info", "critical", "error", "warn"}
 	for i := range levels {
-		if levels[i] == Level {
+		if levels[i] == level {
 			return true
 		}
 	}

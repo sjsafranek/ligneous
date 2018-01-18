@@ -13,13 +13,13 @@ type SeelogWrapper struct {
 }
 
 func (self *SeelogWrapper) init() (err error) {
-	if "" == self.Level {
-		self.Level = "debug"
+	if "" == self.Level || !self.isValidLevel(self.Level) {
+		self.Level = DEFAULT_LEVEL
 	}
 
 	self.Log = seelog.Disabled
 
-	logConfig := getConfig(Level)
+	logConfig := getConfig(self.Level)
 
 	self.Log, err = seelog.LoggerFromConfigAsBytes([]byte(logConfig))
 	return
