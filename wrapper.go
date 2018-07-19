@@ -6,6 +6,10 @@ import (
 	seelog "github.com/cihub/seelog"
 )
 
+type Log struct {
+	seelog.LoggerInterface
+}
+
 type SeelogWrapper struct {
 	Log   seelog.LoggerInterface
 	Level string
