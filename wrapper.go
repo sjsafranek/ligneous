@@ -42,3 +42,8 @@ func New() SeelogWrapper {
 	logger.init()
 	return logger
 }
+
+func NewLogger() seelog.LoggerInterface {
+	wrapper := New()
+	return wapper.Log
+}
