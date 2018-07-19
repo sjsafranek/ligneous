@@ -45,5 +45,5 @@ func New() SeelogWrapper {
 
 func NewLogger() seelog.LoggerInterface {
 	wrapper := New()
-	return wapper.Log
+	return wrapper.Log
 }
