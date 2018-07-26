@@ -6,9 +6,7 @@ import (
 	seelog "github.com/cihub/seelog"
 )
 
-type Log struct {
-	seelog.LoggerInterface
-}
+type Log seelog.LoggerInterface
 
 type SeelogWrapper struct {
 	Log   seelog.LoggerInterface
