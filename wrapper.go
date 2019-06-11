@@ -1,51 +1,39 @@
 package ligneous
 
 import (
-	"fmt"
-
 	seelog "github.com/cihub/seelog"
 )
 
 type Log seelog.LoggerInterface
 
-type SeelogWrapper struct {
-	Log   seelog.LoggerInterface
-	Level string
-	// isValidLevel() bool
+func isValidLevel(level string) bool {
+	levels := [6]string{"debug", "trace", "info", "critical", "error", "warn"}
+	for i := range levels {
+		if levels[i] == level {
+			return true
+		}
+	}
+	return false
 }
 
-func (self *SeelogWrapper) init() (err error) {
-	if "" == self.Level || !self.isValidLevel(self.Level) {
-		self.Level = DEFAULT_LEVEL
+func AddLogger(name, level, path string) seelog.LoggerInterface {
+	if "" == level || !isValidLevel(level) {
+		level = DEFAULT_LEVEL
 	}
 
-	self.Log = seelog.Disabled
+	logConfig := getConfig(name, level, path)
 
-	logConfig := getConfig(self.Level)
-
-	self.Log, err = seelog.LoggerFromConfigAsBytes([]byte(logConfig))
-	return
-}
-
-func (self *SeelogWrapper) isValidLevel(level string) bool {
-	return isValidLevel(level)
-}
-
-func (self *SeelogWrapper) SetLevel(level string) error {
-	if !self.isValidLevel(level) {
-		return fmt.Errorf("Not a valid logging level")
+	log, err := seelog.LoggerFromConfigAsBytes([]byte(logConfig))
+	if nil != err {
+		panic(err)
 	}
-	self.Level = level
-	return self.init()
+	return log
 }
 
-func New() SeelogWrapper {
-	logger := SeelogWrapper{Level: "debug"}
-	logger.init()
-	return logger
+func New() seelog.LoggerInterface {
+	return AddLogger("", "", "")
 }
 
 func NewLogger() seelog.LoggerInterface {
-	wrapper := New()
-	return wrapper.Log
+	return New()
 }
