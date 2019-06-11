@@ -19,12 +19,12 @@ func getConfig(name, level, path string) string {
 
 	rollingfile := ""
 	if "" != path {
-		fmt.Sprintf(`<rollingfile type="size" filename="%v/%v.log" maxsize="10000000" maxrolls="5" />`, path, name)
+		rollingfile = fmt.Sprintf(`<rollingfile type="size" filename="%v/%v.log" maxsize="10000000" maxrolls="5" />`, path, name)
 	}
 
 	formats := `
 		<formats>
-			<format id="stdout"   format="%Date %Time [%LEVEL] [PID-%pidLogFormatter] %File %FuncShort:%Line %Msg %n" />
+			<format id="stdout"  format="%Date %Time [%LEVEL] [PID-%pidLogFormatter] %File %FuncShort:%Line %Msg %n" />
 			<format id="debug"   format="%Date %Time %EscM(37)[%LEVEL]%EscM(0) [PID-%pidLogFormatter] %File %FuncShort:%Line %Msg %n" />
 			<format id="info"    format="%Date %Time %EscM(36)[%LEVEL]%EscM(0) [PID-%pidLogFormatter] %File %FuncShort:%Line %Msg %n" />
 			<format id="warn"    format="%Date %Time %EscM(33)[%LEVEL]%EscM(0) [PID-%pidLogFormatter] %File %FuncShort:%Line %Msg %n" />

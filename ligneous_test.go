@@ -5,7 +5,7 @@ import (
 )
 
 func TestLogging(t *testing.T) {
-	log := NewLogger()
+	log := AddLogger("app","debug","logs")
 	log.Debug("debug")
 	log.Info("info")
 	log.Warn("warn")
